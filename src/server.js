@@ -14,11 +14,13 @@ routes.use("/", express.static(__dirname + "/public"));
 app.set("port", process.env.PORT || 3000);
 
 app.listen(app.get("port"), (e) => {
-  if (e) {
-    console.log(`Error al iniciar el servidor en el puerto ${app.get("port")}`);
-  } else {
-    console.log(
-      `Servidor iniciado correctamente en el puerto ${app.get("port")}`
+  if (e)
+    throw new Error(
+      console.log(
+        `Error al iniciar el servidor en el puerto ${app.get("port")}`
+      )
     );
-  }
+  console.log(
+    `Servidor iniciado correctamente en el puerto ${app.get("port")}`
+  );
 });
